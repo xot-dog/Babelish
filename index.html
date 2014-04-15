@@ -28,33 +28,60 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Babelish is a command tool to convert a csv file of translations into localisation files such as:</p>
+          <p>Originally created to deal with localizedStrings files (aka <em>CSV-to-iOS-Localizable.strings-converter</em>), this command tool now converts a csv file of translations into the below file formats and vice-versa:</p>
 
 <ul>
 <li>.strings (iOS)</li>
 <li>.xml (Android)</li>
 <li>.json</li>
 <li>.php</li>
-</ul><h1>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h1>
+</ul><p>It can also fetch the csv file from GoogleDrive.</p>
 
-<ul>
-<li>Ruby 1.9.2 or above</li>
-</ul><h1>
-<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h1>
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
 
 <p><code>gem install babelish</code></p>
+
+<p>Requires Ruby 1.9.2 or above.</p>
 
 <h1>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
 
-<p><code>babelish help</code></p>
+<pre><code>› babelish help
+Commands:
+  babelish android2csv -i, --filenames=one two three              # Convert .xml files to CSV file
+  babelish csv2android --filename=FILENAME -L, --langs=key:value  # Convert CSV file to .xml
+  babelish csv2json --filename=FILENAME -L, --langs=key:value     # Convert CSV file to .json
+  babelish csv2php --filename=FILENAME -L, --langs=key:value      # Convert CSV file to .php
+  babelish csv2strings --filename=FILENAME -L, --langs=key:value  # Convert CSV file to .strings
+  babelish csv_download --gd-filename=GD_FILENAME                 # Download Google Spreadsheet containing translations
+  babelish help [COMMAND]                                         # Describe available commands or one specific command
+  babelish json2csv -i, --filenames=one two three                 # Convert .json files to CSV file
+  babelish php2csv -i, --filenames=one two three                  # Convert .php files to CSV file
+  babelish strings2csv -i, --filenames=one two three              # Convert .strings files to CSV file
+  babelish version                                                # Display current version
 
-<ul>
-<li>Use configuration file</li>
-</ul><p>You can use a configuration file to hold all your commandline arguments into a file.
-Place a <code>.babelish</code> file in your repo where you will run the command.
-See <code>.babelish.sample</code> as the possible values.</p>
+Options:
+  [--verbose], [--no-verbose]
+</code></pre>
+
+<p>You can use a <strong>configuration file</strong> to hold all your commandline arguments into a file.
+Place a <code>.babelish</code> file (YAML) in your repo where you will run the command.
+See <a href=".babelish.sample">.babelish.sample</a> file in the doc folder. as the possible values.</p>
+
+<p><em>For previous CSV-to-iOS-Localizable.strings-converter, rename your <code>.csvconverter</code> into <code>.babelish</code>.</em></p>
+
+<h1>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h1>
+
+<p>Want to add another support for a new format or/and usage? Add a new feature? Fix a bug?</p>
+
+<p>Just create a pull request with a branch like <code>feature/&lt;nameofbranch&gt;</code> or <code>hotfix/&lt;nameofbranch&gt;</code>.</p>
+
+<h2>
+<a name="development" class="anchor" href="#development"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>Run <code>bundle install</code> to install all the dependencies. Tests are done with <code>Test::Unit</code> so run <code>rake test</code> to run all the test suite.</p>
         </section>
 
         <aside id="sidebar">
