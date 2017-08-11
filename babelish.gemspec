@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
   s.add_dependency "nokogiri"
   # google_drive dependency to ask for mail and password
   s.add_dependency "highline"
+  s.add_dependency "htmlentities"
+  
 
   # specify version of rack so works on ruby <2.2.2
   s.add_dependency "rack", "1.6.4"
